@@ -4,11 +4,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
+//Route declarations
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var sessions = require('./routes/sessions');
 
+//Express instance
 var app = express();
+
+//Connect to mongodb
+mongoose.connect('mongodb://localhost/api', function(err){
+    if(err){
+        console.log('connection error', err);
+    } else {
+        console.log('connection successful');
+    }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,8 +34,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Route Mapping
 app.use('/', routes);
-app.use('/users', users);
+app.use('/sessions', sessions);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

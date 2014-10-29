@@ -8,4 +8,8 @@ var SessionSchema = new mongoose.Schema({
 		recommendation: Number
 });
 
+SessionSchema.virtual('id').get(function(){
+	return this._id;
+});
+
 module.exports = mongoose.model('Session', SessionSchema);

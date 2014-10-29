@@ -7,6 +7,7 @@ import DS from 'ember-data';
 //});
 var Adapter = DS.RESTAdapter.extend({
 	host: 'https://rateapp-api.herokuapp.com'
+	//host: 'localhost:3000'
 });
 
 export default Adapter;

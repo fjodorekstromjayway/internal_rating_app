@@ -17,22 +17,22 @@ import DS from 'ember-data';
 /////////// FIXTURE DATA //////////
 ///////////////////////////////////
 var Session = DS.Model.extend({
-	title: DS.attr('string'),
+  title: DS.attr('string'),
   presenter: DS.attr('string'),
   description: DS.attr('string'),
-  //area: DS.attr(),
+  areas: DS.attr(),
   rating: DS.attr('number'),
   recommendation: DS.attr('number')
 });
 
-Session.reopenClass({
+/*Session.reopenClass({
 	FIXTURES: [
 		{
 			id: 1,
 			title: "A word on notes",
 			presenter: "Fjodor Ekström",
 			description: "How should you really use notes and what is words anyway?",
-			//area: ["web","iot","philosophy"],
+			areas: ["web","iot","philosophy"],
 			rating: 5,
 			recommendation: 2
 		},
@@ -41,11 +41,11 @@ Session.reopenClass({
 			title: "A word on pigs",
 			presenter: "Fjodor Ekström",
 			description: "How should you really use pigs and what is stables anyway?",
-			//area: ["farming","human survival","self sufficiency"],
+			areas: ["farming","human survival","self sufficiency"],
 			rating: 2,
 			recommendation: 7
 		}
 	]
-});
+});*/
 
 export default Session;

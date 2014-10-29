@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var uriUtil = require('mongodb-uri');
 
 //Route declarations
 var routes = require('./routes/index');
@@ -14,12 +15,29 @@ var sessions = require('./routes/sessions');
 var app = express();
 
 //Connect to mongodb
-mongoose.connect('mongodb://localhost/api', function(err){
-    if(err){
-        console.log('connection error', err);
-    } else {
-        console.log('connection successful');
+var options = {
+    server: {
+        socketOptions: {
+            keepAlive: 1,
+            connectTimeout: 30000
+        }
+    },
+    replset: {
+        socketOptions: {
+            keepAlive: 1,
+            connectTimeout: 30000
+        }
     }
+}
+
+var mongodbUri = 'mongodb://fjodorekstrom:fjodor@ds063889.mongolab.com:63889/rateappdb';
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+
+mongoose.connect(mongooseUri, options);
+var conn = mongoose.connection;
+conn.on('error', console.error.bind(console, 'connection error'));
+conn.once('open', function() {
+
 });
 
 // view engine setup

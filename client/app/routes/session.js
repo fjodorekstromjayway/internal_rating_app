@@ -5,6 +5,6 @@ export default Ember.Route.extend({
 		return this.store.find('session', params.session_id);
 	},
 	serialize: function(session){
-		return {session_id: session.get('id')};
+		return {session_id: session.get('_id')};
 	}
 });

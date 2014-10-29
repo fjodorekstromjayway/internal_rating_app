@@ -2,6 +2,9 @@
 
 module.exports = function(environment) {
   var ENV = {
+    contentSecurityPolicy: {
+      'connect-src': "'self' https://rateapp-api.herokuapp.com"
+    },
     modulePrefix: 'rateme',
     environment: environment,
     baseURL: '/',

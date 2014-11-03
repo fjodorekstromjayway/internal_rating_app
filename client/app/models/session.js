@@ -22,7 +22,8 @@ var Session = DS.Model.extend({
   start_time: DS.attr('string'),
   end_time: DS.attr('string'),
   speakers: DS.attr('string'),
-  space_name: DS.attr('string')
+  space_name: DS.attr('string'),
+  ratings: DS.attr()
 });
 /*
 Session.reopenClass({

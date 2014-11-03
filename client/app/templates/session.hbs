@@ -1,5 +1,26 @@
 <h1>{{title}}</h1>
-<strong>{{abstract}}</strong>
-<strong>{{start_time}}</strong>
-<strong>{{end_time}}</strong>
-<strong>{{ratings}}</strong>
+<strong>Abstract</strong>
+<p>{{abstract}}</p>
+<label>Starts</label>
+<p>{{start_time}}</p>
+<label>Ends</label>
+<p>{{end_time}}</p>
+<div class="InputAddOn">
+  <label for="new-comment"></label>
+  {{view "select" class="InputAddOn-field"content=names}}
+
+</div>
+<label>Other peoples impressions</label>
+<ul>
+{{#each ratings}}
+<li class="ratings-item">
+	<p>{{rating}}</p>
+</li>
+{{/each}}
+</ul>
+
+<div class="InputAddOn">
+  <input class="InputAddOn-field">
+  <button class="InputAddOn-item" value="1" {{action 'setRating'}}>Tell'em</button>
+
+</div>

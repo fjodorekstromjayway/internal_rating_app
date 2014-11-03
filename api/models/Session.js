@@ -2,10 +2,12 @@ var mongoose = require('mongoose');
 
 var SessionSchema = new mongoose.Schema({
 		title: String,
-		description: String,
-		areas: Array,
-		rating: Number,
-		recommendation: Number
+		abstract: String,
+		start_time: String,
+		ratings: Array,
+		end_time: String,
+		speakers: Array,
+		space_name: String
 });
 
 SessionSchema.virtual('id').get(function(){

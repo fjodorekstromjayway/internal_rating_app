@@ -1,11 +1,13 @@
+<ul class="nav nav-pills" role="tablist">
+  <li role="presentation" {{action 'setFilter' 'Wednesday'}}><a href="#">Wednesday</a></li>
+  <li role="presentation" {{action 'setFilter' 'Thursday'}}><a href="#">Thursday</a></li>
+  <li role="presentation" {{action 'setFilter' 'Friday'}}><a href="#">Friday</a></li>
+</ul>
 <ul id="session-list">
-  <button {{action 'setFilter' 'Wednesday'}}>Wednesday</button>
-  <button {{action 'setFilter' 'Thursday'}}>Thursday</button>
-  <button {{action 'setFilter' 'Friday'}}>Friday</button>
   {{#each item in filteredContent}}
   {{#link-to 'session' item}}
     <li class="well">
-    <p class="big-text grey">{{item.day}}</p>
+    <p class="big-text grey">{{item.time}}</p>
       <p class="xbig-text center grey">{{item.title}}</p>
     </li>
     {{/link-to}}

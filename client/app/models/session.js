@@ -53,6 +53,11 @@ var Session = DS.Model.extend({
       return days[3];
     }
     return day;
+  }.property('start_time'),
+  time: function(){
+    var date = this.get('start_time');
+    var datetime = date.substr(10,12);
+    return datetime;
   }.property('start_time')
 });
 

@@ -10,9 +10,10 @@ router.get('/', function(req, res, next) {
   	if(err){
   		return next(err);
   	}
-  	var pluralized = {};
-  	pluralized.sessions = sessions;
-  	res.json(pluralized);
+  	res.json(sessions);
+  	//var pluralized = {};
+  	//pluralized.sessions = sessions;
+  	//res.json(pluralized);
   });
 });
 

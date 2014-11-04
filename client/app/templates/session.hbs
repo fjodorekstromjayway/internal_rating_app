@@ -6,9 +6,18 @@
 <label>Ends</label>
 <p>{{end_time}}</p>
 <div class="InputAddOn">
-  <label for="new-comment"></label>
-  {{view "select" class="InputAddOn-field"content=names}}
-
+  <form class="ratingform" action="ratings" enctype='application/json'>
+    <input id="new-comment" type="textarea" class="InputAddOn-field comment" name='comment' value='Bender'>
+    <select id="new-rating" class="InputAddOn-field rating" name='rating'>
+      <option selected></option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+    <input name='submit' type='submit' {{action 'addRating'}}id="btn-submit-rating" >
+  </form>
 </div>
 <label>Other peoples impressions</label>
 <ul>
@@ -18,9 +27,3 @@
 </li>
 {{/each}}
 </ul>
-
-<div class="InputAddOn">
-  <input class="InputAddOn-field">
-  <button class="InputAddOn-item" value="1" {{action 'setRating'}}>Tell'em</button>
-
-</div>

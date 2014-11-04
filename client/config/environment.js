@@ -3,7 +3,15 @@
 module.exports = function(environment) {
   var ENV = {
     contentSecurityPolicy: {
-      'connect-src': "'self' https://rateapp-api.herokuapp.com"
+      //'connect-src': "'self' https://rateapp-api.herokuapp.com"
+      //'connect-src': "'self' http://localhost:3000"
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
+      'font-src': "'self' data: use.typekit.net",
+      'connect-src': "'self' http://127.0.0.1:3000",
+      'img-src': "'self' www.facebook.com p.typekit.net",
+      'style-src': "'self' 'unsafe-inline' use.typekit.net",
+      'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
     },
     modulePrefix: 'rateme',
     environment: environment,

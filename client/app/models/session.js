@@ -23,7 +23,37 @@ var Session = DS.Model.extend({
   end_time: DS.attr('string'),
   speakers: DS.attr('string'),
   space_name: DS.attr('string'),
-  ratings: DS.attr()
+  ratings: DS.attr(),
+  unixtime_start: function(){
+    var dateString = this.get('start_time');
+    if(dateString){
+    dateString = dateString.split(' ').join('T');
+    }
+    document.write(dateString);
+    var date = new Date(dateString);
+    document.write('<br />' + date);
+    date = date.getTime() / 1000;
+    return date;
+  }.property('start_time'),
+  day: function(){
+    var date = this.get('start_time');
+    var datetime = date.substr(8,8);
+    var day = datetime.substr(0,2);
+    var days = ['Tuesday','Wednesday', 'Thursday', 'Friday'];
+    if(day == '04'){
+      return days[0];
+    }
+    if(day=='05'){
+      return days[1];
+    }
+    if(day=='06'){
+      return days[2];
+    }
+    if(day == '07'){
+      return days[3];
+    }
+    return day;
+  }.property('start_time')
 });
 
 /*Session.reopenClass({

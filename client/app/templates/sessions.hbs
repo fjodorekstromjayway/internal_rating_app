@@ -1,7 +1,13 @@
 <ul id="session-list">
-  {{#each}}
+  <button {{action 'setFilter' 'Wednesday'}}>Wednesday</button>
+  <button {{action 'setFilter' 'Thursday'}}>Thursday</button>
+  <button {{action 'setFilter' 'Friday'}}>Friday</button>
+  {{#each item in filteredContent}}
+  {{#link-to 'session' item}}
     <li class="well">
-      <p>{{#link-to 'session' this}} {{title}} {{/link-to}}</p>
+    <p class="big-text grey">{{item.day}}</p>
+      <p class="xbig-text center grey">{{item.title}}</p>
     </li>
+    {{/link-to}}
   {{/each}}
 </ul>

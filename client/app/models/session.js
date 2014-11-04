@@ -25,8 +25,8 @@ var Session = DS.Model.extend({
   space_name: DS.attr('string'),
   ratings: DS.attr()
 });
-/*
-Session.reopenClass({
+
+/*Session.reopenClass({
 	FIXTURES: [
   {
     "crowdsource_ref": "2014/340C210441BED6E6C1257D62003CDEDF",
@@ -3234,8 +3234,11 @@ Session.FIXTURES.forEach(function(fixture){
 	fixture['id'] = i.toString();
 	i++;
 	fixture.ratings = [{rating: '', comment: ''}];
+  fixture = {
+    "session": fixture
+  }
 	console.log(JSON.stringify(fixture));
-});*/
-//console.log(JSON.stringify(Session.FIXTURES));
+});
+//console.log(JSON.stringify(Session.FIXTURES));*/
 
 export default Session;

@@ -1,13 +1,15 @@
-<h1>{{title}}</h1>
+<h1>{{model.title}}</h1>
 <strong>Abstract</strong>
-<p>{{abstract}}</p>
+<p>{{model.abstract}}</p>
 <label>Starts</label>
-<p>{{start_time}}</p>
+<p>{{model.start_time}}</p>
 <label>Ends</label>
-<p>{{end_time}}</p>
+<p>{{model.end_time}}</p>
 <div class="InputAddOn">
-  <form class="ratingform" action="ratings" enctype='application/json'>
-    <input id="new-comment" type="textarea" class="InputAddOn-field comment" name='comment' value='Bender'>
+  <form class="ratingform well" action="ratings" enctype='application/json'>
+    <label for="new-comment">Key takeaway</label>
+    <textarea id="new-comment" type="text" rows="3" class="InputAddOn-field comment" name='comment'></textarea>
+    <label for="new-rating">Rating (1-5)</label>
     <select id="new-rating" class="InputAddOn-field rating" name='rating'>
       <option selected></option>
       <option>1</option>
@@ -16,14 +18,17 @@
       <option>4</option>
       <option>5</option>
     </select>
-    <input name='submit' type='submit' {{action 'addRating'}}id="btn-submit-rating" >
+    <br />
+    <input name='submit' class="btn-large"type='submit' {{action 'addRating'}}id="btn-submit-rating" >
   </form>
 </div>
-<label>Other peoples impressions</label>
+<br />
+<h3>Other peoples impressions</h3>
 <ul>
-{{#each ratings}}
-<li class="ratings-item">
-	<p>{{rating}}</p>
+{{#each model.ratings}}
+<li class="ratings-item well">
+	<p>Grade: {{rating}}/5</p>
+  <p>Key takeaway: {{comment}}</p>
 </li>
 {{/each}}
 </ul>

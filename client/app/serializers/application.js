@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 var serializer = DS.RESTSerializer.extend({
-	primaryKey: '_id'//,
+	primaryKey: '_id'//'_id',
   /*extract: function(loader, json, type, record) {
     var newJSON, root;
     root = this.rootForType(type);

@@ -9,7 +9,7 @@ router.get('/:id', function(req, res, next){
 		if(err){
 			return next(err);
 		}
-		res.json(post);
+		res.json({"session":post});
 	});
 });
 
@@ -34,7 +34,7 @@ router.put('/:id', function(req, res, next){
 		if(err){
 			return next(err);
 		}
-		res.json(post);
+		res.json({"session":post});
 	});
 });
 

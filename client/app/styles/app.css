@@ -71,6 +71,20 @@ li {
   margin: 1em 1em 1em 1em;
   padding: 0px !important;
 }
+#navbar {
+  flex-direction: row;
+  margin-left: 5%!important;
+}
+#navbar li {
+  background-color: green;
+  opacity: 0.7;
+  border: 1.5px dotted white;
+  border-radius: 5px;
+
+}
+#navbar li a {
+  color:white!important;
+}
 .fullwidth {
   width:99%;
   margin: 0px;
@@ -148,4 +162,7 @@ a {
   width: 100%;
 margin-left: 0px;
 padding-left: 0px;
+}
+.filtername {
+  color: green;
 }

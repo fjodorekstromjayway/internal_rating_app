@@ -73,7 +73,7 @@ li {
 }
 #navbar {
   flex-direction: row;
-  margin-left: 5%!important;
+  margin-left: 2%!important;
 }
 #navbar li {
   background-color: green;

@@ -1,15 +1,30 @@
-<ul class="nav nav-pills" role="tablist">
-  <li role="presentation" {{action 'setFilter' 'Wednesday'}}><a href="#">Wednesday</a></li>
-  <li role="presentation" {{action 'setFilter' 'Thursday'}}><a href="#">Thursday</a></li>
-  <li role="presentation" {{action 'setFilter' 'Friday'}}><a href="#">Friday</a></li>
+<ul class="flex-item" role="tablist">
+  <li class="filterbar medium-text"role="presentation" {{action 'setFilter' ''}}><a href="#">All</a></li>
+  <li class="filterbar medium-text" role="presentation" {{action 'setFilter' 'Wednesday'}}><a href="#">Wed</a></li>
+  <li class="filterbar medium-text" role="presentation" {{action 'setFilter' 'Thursday'}}><a href="#">Thu</a></li>
+  <li class="filterbar medium-text" role="presentation" {{action 'setFilter' 'Friday'}}><a href="#">Fri</a></li>
+  <br />
 </ul>
 <ul id="session-list">
-  {{#each item in filteredContent}}
-  {{#link-to 'session' item}}
-    <li class="well">
-    <p class="big-text grey">{{item.time}}</p>
-      <p class="xbig-text center grey">{{item.title}}</p>
+  <div class="flex-item">
+    <li>
+      {{#if filter}}
+        <h2 class="1-1">{{filter}}</h2>
+      {{/if}}
+      {{#unless filter}}
+        <h2 class="1-1">All days</h2>
+      {{/unless}}
     </li>
-    {{/link-to}}
-  {{/each}}
+    {{#each item in filteredContent}}
+      {{#link-to 'session' item}}
+        <li class="well">
+          <div id="time-and-place">
+            <p id="time"class="small-text grey">{{item.time}} - {{item.time_end}}</p>
+            <p id="room" class="small-text grey">{{item.space_name}}</p>
+          </div>
+          <p id="listitem-title" class="medium-text center grey">{{item.title}}</p>
+        </li>
+      {{/link-to}}
+    {{/each}}
+  </div>
 </ul>

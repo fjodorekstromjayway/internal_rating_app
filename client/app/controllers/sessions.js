@@ -15,5 +15,23 @@ export default Ember.ArrayController.extend({
     setFilter: function(param){
       this.set('filter', param);
     }
+  },
+  wednesdayContent: function(){
+    var filter = 'Wednesday';
+    return this.get('content').filter(function(item, index, enumerable){
+      return item.get('day').toLowerCase().match(filter.toLowerCase());
+    });
+  }, 
+  thursdayContent: function(){
+    var filter = 'Thursday';
+    return this.get('content').filter(function(item, index, enumerable){
+      return item.get('day').toLowerCase().match(filter.toLowerCase());
+    });
+  },
+  fridayContent: function(){
+    var filter = 'Friday';
+    return this.get('content').filter(function(item, index, enumerable){
+      return item.get('day').toLowerCase().match(filter.toLowerCase());
+    });
   }
 });

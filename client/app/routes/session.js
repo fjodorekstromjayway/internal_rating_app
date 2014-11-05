@@ -3,6 +3,7 @@ import Ember from 'ember';
 //TODO: REFACTOR THIS CRAP
 
 export default Ember.Route.extend({
+
 	model:function(params){
 		console.log(this.Route);
 		return this.store.find('session', params.id);

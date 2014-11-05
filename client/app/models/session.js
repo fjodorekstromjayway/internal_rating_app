@@ -57,8 +57,35 @@ var Session = DS.Model.extend({
   time: function(){
     var date = this.get('start_time');
     var datetime = date.substr(10,12);
-    return datetime;
-  }.property('start_time')
+    return datetime.substr(0,6);
+  }.property('start_time'),
+  time_end: function(){
+    var date = this.get('end_time');
+    var datetime = date.substr(10,12);
+    return datetime.substr(0,6);
+  }.property('start_time'),
+  total_rating: function(){
+    var ratings = this.get('ratings');
+    var rates = [];
+    ratings.forEach(function(ratingItem){
+      if(ratingItem.rating == ''){
+        rates.push(0);
+      } else {
+        var rate = parseInt(ratingItem.rating);
+        rates.push(rate);
+      }
+    });
+    var sum = 0;
+    rates.forEach(function(rat){
+      sum = sum + rat;
+    });
+
+    console.log(sum);
+    var max = rates.length * 5;
+    var p = sum/max;
+    var percent = p * 100;
+    return percent;
+  }.property('ratings')
 });
 
 /*Session.reopenClass({
